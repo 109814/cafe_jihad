@@ -10,9 +10,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="{{ asset('icofont/icofont.min.css') }}" type="text/css">
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -86,7 +87,7 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Alerts -->
+                        <!-- Nav Item - Alerts notifikasi-->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,14 +142,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profile.edit">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -161,10 +162,14 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                <a class="dropdown-item" href="route('login')" data-toggle="modal" data-target="#logoutModal" onclick="event.preventDefault();
+                                this.closest('form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logoutfef
+                                    Logout
                                 </a>
+                                </form>
                             </div>
                         </li>
 
@@ -175,9 +180,14 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    {{--  @if (!empty($url))  --}}
+                    @yield('content')
+                    {{--  @else  --}}
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">baris 180</h1>
+                    {{--  <h1 class="h3 mb-4 text-gray-800">Hai {{ Auth::user()->name }}</h1>
+                    <h1>Selamat datang di Cafe {{ config('app.name') }}</h1>
+                    @endif  --}}
+
 
                 </div>
                 <!-- /.container-fluid -->
