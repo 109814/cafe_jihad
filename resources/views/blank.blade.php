@@ -180,13 +180,15 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    {{--  @if (!empty($url))  --}}
-                    @yield('content')
-                    {{--  @else  --}}
-                    <!-- Page Heading -->
-                    {{--  <h1 class="h3 mb-4 text-gray-800">Hai {{ Auth::user()->name }}</h1>
+
+                @if(request()->is('dashboard'))
+                    <h1 class="h3 mb-4 text-gray-800">Hai {{ Auth::user()->name }}</h1>
                     <h1>Selamat datang di Cafe {{ config('app.name') }}</h1>
-                    @endif  --}}
+                @else
+                    @yield('jihad')
+                @endif
+
+                    <!-- Page Heading -->
 
 
                 </div>

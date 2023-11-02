@@ -13,12 +13,17 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            <!-- Input MEnu -->
             <li class="nav-item">
                 <a class="nav-link" href="/inputmenu">
                     <i class="fas fa-fw fa-solid fa-list-ul"></i>
-                    <span>Input Menu</span></a>
+                    <span>{{ Auth::user()->name }}</span></a>
+                </li>
+                <hr class="sidebar-divider my-0">
+            <!-- Input MEnu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/tambah_menu">
+                    <i class="fas fa-fw fa-solid fa-list-ul"></i>
+                    <span>Tambah Menu</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/kelolamenu">
