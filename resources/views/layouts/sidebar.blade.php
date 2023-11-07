@@ -21,7 +21,7 @@
                 <hr class="sidebar-divider my-0">
             <!-- Input MEnu -->
             <li class="nav-item">
-                <a class="nav-link" href="/tambah_menu">
+                <a class="nav-link" href="/kelola_menu">
                     <i class="fas fa-fw fa-solid fa-list-ul"></i>
                     <span>Tambah Menu</span></a>
             </li>

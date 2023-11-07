@@ -13,9 +13,9 @@ return new class extends Migration
     {
         //
         Schema::create('transaksi', function(Blueprint $table){
-            $table->integer('id_trans');
+            $table->bigIncrements('id_trans');
             $table->date('tgl');
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('pelanggan');
             $table->integer('total');
         });

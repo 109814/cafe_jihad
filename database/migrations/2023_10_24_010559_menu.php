@@ -13,11 +13,13 @@ return new class extends Migration
     {
         //
         Schema::create('menu', function(Blueprint $table){
-            $table->integer('id_menu');
+            $table->bigIncrements('id_menu');
             $table->string('nama');
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('harga');
             $table->enum('jenis',['makanan','minuman']);
+            $table->timestamp('updated_at');
+            $table->timestamp('created_at')->nullable();
         });
     }
 

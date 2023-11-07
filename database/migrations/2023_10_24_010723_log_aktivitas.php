@@ -14,9 +14,9 @@ return new class extends Migration
     {
         //
         Schema::create('log_aktivitas', function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->datetime('date');
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('kejadian');
         });
     }

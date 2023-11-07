@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::create('detail_trans', function(Blueprint $table){
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('id_trans');
             $table->integer('id_menu');
         });
