@@ -2,10 +2,11 @@
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\kelolamenuController;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\globalController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\kelolamenuController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::get('/dashboard', function () {return view('blank');})->middleware(['auth
 
 Route::middleware('auth')->group(function () {
     Route::get('/tambah_menu', [globalController::class, 'index']);
+
+    Route::get('register', [RegisteredUserController::class, 'create'])
+        ->name('register');
+    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::get('kelolauser', [globalController::class, 'kelolauser']);
 
     Route::get('/kelolamenu', [kelolamenuController::class, 'create'])->name('input_menu');
             Route::post('/tambah_menu', [kelolamenuController::class, 'store'])->name('tambah_menu');

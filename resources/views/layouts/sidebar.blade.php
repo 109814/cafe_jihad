@@ -14,14 +14,17 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="/inputmenu">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-solid fa-list-ul"></i>
-                    <span>{{ Auth::user()->name }}</span></a>
+                    <span>Home</span></a>
                 </li>
                 <hr class="sidebar-divider my-0">
             <!-- Input MEnu -->
-            <li class="nav-item">
-                <a class="nav-link" href="/kelola_menu">
+            @auth
+                @if (auth()->user()->hasRole('manajer'))
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/kelola_menu">
                     <i class="fas fa-fw fa-solid fa-list-ul"></i>
                     <span>Tambah Menu</span></a>
             </li>
@@ -52,6 +55,30 @@
                     </div>
                 </div>
             </li>
+            @elseif (auth()->user()->hasRole('admin'))
+            <li class="nav-item">
+                <a class="nav-link" href="/register">
+                <i class="fas fa-fw fa-solid fa-list-ul"></i>
+                <span>Tambah user</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/kelolauser">
+                <i class="fas fa-fw fa-solid fa-list-ul"></i>
+                <span>kelola user</span></a>
+        </li>
+            @elseif (auth()->user()->hasRole('kasir'))
+            <li class="nav-item">
+                <a class="nav-link" href="/kelola_menu">
+                <i class="fas fa-fw fa-solid fa-list-ul"></i>
+                <span>Tambah user</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/kelolamenu">
+                <i class="fas fa-fw fa-solid fa-list-ul"></i>
+                <span>kelola user</span></a>
+        </li>
+            @endif
+        @endauth
 
 
 

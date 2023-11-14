@@ -53,4 +53,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    // mengambil role pertama untuk di tampilkan
+    public function firstRole()
+    {
+        return $this->roles->first();
+    }
 }

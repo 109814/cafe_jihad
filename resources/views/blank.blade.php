@@ -182,8 +182,9 @@
                 <div class="container-fluid">
 
                 @if(request()->is('dashboard'))
-                    <h1 class="h3 mb-4 text-gray-800">Hai {{ Auth::user()->name }}</h1>
-                    <h1>Selamat datang di Cafe {{ config('app.name') }}</h1>
+                <h1>Selamat datang di Cafe {{ config('app.name') }}</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Anda {{ Auth::user()->name }}</h1>
+                    <h3>Status Anda {{ auth()->user()->getRoleNames()->implode(', ') }}</h3>
                 @else
                     @yield('jihad')
                     @endif
